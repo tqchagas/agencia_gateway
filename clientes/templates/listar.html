@@ -21,7 +21,7 @@
         <td>{{ cliente.sexo }}</td>
         <td></td>
         <td><a href="{% url "atualizar_cliente" cliente.id %}">Editar</a></td>
-        <td></td>
+        <td><a href="{% url "apagar_cliente" cliente.id %}">Apagar</a></td>
         </tr>
         {% endfor %}
     </tbody>
