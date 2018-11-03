@@ -1,0 +1,10 @@
+{% include 'base.html' %}
+
+
+{% block content %}
+<h1>Deletar cliente</h1>
+<form method="post">{% csrf_token %}
+    Deseja realmente deletar o cliente "{{ cliente.nome }}" ?
+    <input type="submit" value="Apagar" />
+</form>
+{% endblock %}

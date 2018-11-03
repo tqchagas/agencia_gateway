@@ -1,0 +1,31 @@
+{% include 'base.html' %}
+
+
+{% block content %}
+    <h1>Clientes</h1>
+
+    <table class="table">
+    <thead>
+        <tr>
+        <th>Nome</th>
+        <th>Sexo</th>
+        <th>Visualizar</th>
+        <th>Editar</th>
+        <th>Deletar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cliente in clientes %}
+        <tr>
+        <td>{{ cliente.nome }}</td>
+        <td>{{ cliente.sexo }}</td>
+        <td></td>
+        <td><a href="{% url "atualizar_cliente" cliente.id %}">Editar</a></td>
+        <td></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+
+    <a href="{% url 'novo_cliente' %}">Cadastrar novo</a>
+{% endblock %}
