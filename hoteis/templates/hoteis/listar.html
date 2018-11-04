@@ -1,0 +1,37 @@
+{% include 'base.html' %}
+
+
+{% block content %}
+
+<h1>Hoteis</h1>
+
+<table class="table">
+<thead>
+    <tr>
+    <th>Nome</th>
+    <th>Endereço</th>
+    <th>Valor diária</th>
+    <th>Visualizar</th>
+    <th>Editar</th>
+    <th>Deletar</th>
+    </tr>
+</thead>
+<tbody>
+    {% for hotel in hoteis %}
+    <tr>
+    <td>{{ hotel.nome }}</td>
+    <td>{{ hotel.logradouro }} {{ hotel.bairro }} {{ hotel.cidade }} {{ hotel.estado }}</td>
+    <td>R$ {{ hotel.valor_diaria }}</td>
+    <td><a href="{% url "detalhe_hotel" hotel.id %}">Visualizar</a></td>
+    <td><a href="{% url "atualizar_hotel" hotel.id %}">Editar</a></td>
+    <td><a href="{% url "apagar_hotel" hotel.id %}">Apagar</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+<a href="{% url 'novo_hotel' %}">Cadastrar novo</a>
+
+
+
+{% endblock %}

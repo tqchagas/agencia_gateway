@@ -1,0 +1,11 @@
+{% include 'base.html' %}
+
+
+{% block content %}
+
+<h1>Detalhes do hotel</h1>
+<h2>Nome: {{hotel.nome}}</h2>
+<h2>Endereço: {{hotel.logradouro}} {{hotel.numero}} {{hotel.complemento}} {{hotel.cidade}} {{hotel.estado}} </h2>
+<h2>Valor diária: R$ {{hotel.valor_diaria}}</h2>
+
+{% endblock %}

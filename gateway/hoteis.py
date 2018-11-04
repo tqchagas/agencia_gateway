@@ -1,6 +1,6 @@
 import requests
 
-base_url = 'https://hotels-microsservico.herokuapp.com/hotels/'
+base_url = 'https://hoteis-microsservico.herokuapp.com/hoteis/'
 
 
 def apagar_hotel(codigo):
@@ -30,9 +30,8 @@ def buscar_hotel(codigo=None):
     raise Exception('erro ao buscar hotel')
 
 
-def salvar_hotel(codigo, conteudo):
-    url = '{}{}/'.format(base_url, codigo)
-    response = requests.post(url, json=conteudo)
+def salvar_hotel(conteudo):
+    response = requests.post(base_url, json=conteudo)
     if response.status_code == 201:
         return response.json()
     raise Exception('erro ao salvar hotel')

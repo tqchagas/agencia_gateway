@@ -30,7 +30,7 @@ class ClienteDetalhe(View):
     def get(self, request, pk):
         return render(
             request,
-            'atualizar.html',
+            'detalhe.html',
             {"cliente": clientes.buscar_cliente(pk)})
 
 
