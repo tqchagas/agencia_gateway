@@ -8,15 +8,7 @@ def apagar_venda(codigo):
     response = requests.delete(url)
     if response.status_code == 204:
         return True
-    raise Exception('erro ao apagar hotel')
-
-
-def atualizar_venda(codigo, conteudo):
-    url = '{}{}/'.format(base_url, codigo)
-    response = requests.put(url, json=conteudo)
-    if response.status_code == 200:
-        return conteudo
-    raise Exception('erro ao atualizar hotel')
+    raise Exception('erro ao apagar venda')
 
 
 def buscar_venda(codigo=None):
@@ -27,12 +19,11 @@ def buscar_venda(codigo=None):
     response = requests.get(url)
     if response.status_code == 200:
         return response.json()
-    raise Exception('erro ao buscar hotel')
+    raise Exception('erro ao buscar venda')
 
 
-def salvar_venda(codigo, conteudo):
-    url = '{}{}/'.format(base_url, codigo)
-    response = requests.post(url, json=conteudo)
+def salvar_venda(conteudo):
+    response = requests.post(base_url, json=conteudo)
     if response.status_code == 201:
         return response.json()
-    raise Exception('erro ao salvar hotel')
+    raise Exception('erro ao salvar venda')

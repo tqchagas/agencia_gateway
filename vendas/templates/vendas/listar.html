@@ -1,0 +1,36 @@
+{% load gateway %}
+{% include 'base.html' %}
+
+
+
+{% block content %}
+    <h1>Vendas</h1>
+
+    <table class="table">
+    <thead>
+        <tr>
+        <th>Cliente</th>
+        <th>Ida</th>
+        <th>Volta</th>
+        <th>Hotel</th>
+        <th>Visualizar</th>
+        <th>Deletar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for venda in vendas %}
+        <tr>
+        <td>{{ venda.cliente }}</td>
+        <td>{{ venda.voo_ida|dados_voo }}</td>
+        <td>{{ venda.voo_volta|dados_voo }}</td>
+        <td>{{ venda.hotel|dados_hotel }}</td>
+        <td><a href="{% url "detalhe_venda" venda.id %}">Visualizar</a></td>
+        <td><a href="{% url "apagar_venda" venda.id %}">Deletar</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+
+    <br>
+    <a href="">Relatório de vendas</a>
+{% endblock %}

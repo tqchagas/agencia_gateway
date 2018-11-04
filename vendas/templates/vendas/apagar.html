@@ -1,0 +1,11 @@
+{% load gateway %}
+{% include 'base.html' %}
+
+
+{% block content %}
+<h1>Deletar venda</h1>
+<form method="post">{% csrf_token %}
+    Deseja realmente deletar a venda para o cliente: "{{ venda.cliente|dados_cliente }}" ?
+    <input type="submit" value="Apagar" />
+</form>
+{% endblock %}

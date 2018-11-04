@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'clientes',
     'hoteis',
+    'vendas',
     'voos',
     'gateway',
 

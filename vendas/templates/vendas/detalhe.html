@@ -1,0 +1,16 @@
+{% load gateway %}
+{% include 'base.html' %}
+
+
+{% block content %}
+
+<h1>Detalhes da venda</h1>
+<h2>Cliente: {{venda.cliente|dados_cliente}}</h2>
+<h2>Voo de ida: {{venda.voo_ida|dados_voo}} </h2>
+<h2>Voo de volta: {{venda.voo_volta|dados_voo}}</h2>
+<h2>Hotel: {{venda.hotel|dados_hotel}}</h2>
+<h2>Diárias: {{venda.diarias}}</h2>
+<h2>Realizada em: {{venda.realizada_em}}</h2>
+
+
+{% endblock %}
