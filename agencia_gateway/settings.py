@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'clientes',
+    'voos',
     'gateway',
 
     'django_extensions',

@@ -11,6 +11,11 @@ urlpatterns = [
         name='apagar_cliente'
     ),
     path(
+        'detalhe/<int:pk>',
+        views.ClienteDetalhe.as_view(),
+        name='detalhe_cliente'
+    ),
+    path(
         'novo',
         views.ClienteNovo.as_view(),
         name='novo_cliente'

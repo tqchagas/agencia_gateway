@@ -22,8 +22,16 @@ class ClienteAtualizar(View):
             {"cliente": clientes.buscar_cliente(pk)})
 
     def post(self, request, pk=None):
-        response = clientes.atualizar_cliente(pk, request.POST)
-        import ipdb; ipdb.set_trace()
+        clientes.atualizar_cliente(pk, request.POST)
+        return HttpResponseRedirect('/clientes/')
+
+
+class ClienteDetalhe(View):
+    def get(self, request, pk):
+        return render(
+            request,
+            'atualizar.html',
+            {"cliente": clientes.buscar_cliente(pk)})
 
 
 class ClienteListar(View):
