@@ -1,0 +1,27 @@
+{% include 'base.html' %}
+
+
+{% block content %}
+<h1> Cadastrar  voo </h1>
+<form method="post">
+	{% csrf_token %}
+   	<div class="form-group"><label class="control-label" for="id_origem">Origem</label><select name="origem" class="form-control" title="" required id="id_origem">
+   		{% for aeroporto in aeroportos %}
+		  <option value="{{aeroporto.id}}">{{aeroporto.sigla}}</option>
+	  {% endfor %}
+
+	</select></div>
+<div class="form-group"><label class="control-label" for="id_destino">Destino</label><select name="destino" class="form-control" title="" required id="id_destino">
+		{% for aeroporto in aeroportos %}
+		  <option value="{{aeroporto.id}}">{{aeroporto.sigla}}</option>
+	  {% endfor %}
+
+</select></div>
+<div class="form-group"><label class="control-label" for="id_numero">Numero</label><input type="text" name="numero" maxlength="10" class="form-control" placeholder="Numero" title="" required id="id_numero"></div>
+<div class="form-group"><label class="control-label" for="id_partida">Partida</label><input type="datetime-local" name="partida" class="form-control" placeholder="Partida" title="" required id="id_partida"></div>
+<div class="form-group"><label class="control-label" for="id_chegada">Chegada</label><input type="datetime-local" name="chegada" class="form-control" placeholder="Chegada" title="" required id="id_chegada"></div>
+<div class="form-group"><label class="control-label" for="id_valor">Valor</label><input type="number" name="valor" value="100.0" step="0.01" class="form-control" placeholder="Valor" title="" required id="id_valor"></div>
+    <input type="submit" value=" Cadastrar " />
+</form>
+
+{% endblock %}

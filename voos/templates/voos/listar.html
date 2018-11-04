@@ -1,0 +1,39 @@
+{% include 'base.html' %}
+
+
+{% block content %}
+<h1>Voos</h1>
+
+<table class="table">
+<thead>
+    <tr>
+    <th>Origem</th>
+    <th>Destino</th>
+    <th>Número</th>
+    <th>Partida</th>
+    <th>Chegada</th>
+    <th>Visualizar</th>
+    <th>Editar</th>
+    <th>Deletar</th>
+    </tr>
+</thead>
+<tbody>
+    {% for voo in voos %}
+    <tr>
+    <td>{{ voo.origem }}</td>
+    <td>{{ voo.destino }}</td>
+    <td>{{ voo.numero }}</td>
+    <td>{{ voo.partida }}</td>
+    <td>{{ voo.chegada }}</td>
+    <td><a href="{% url "detalhe_voo" voo.id %}">Visualizar</a></td>
+    <td><a href="{% url "atualizar_voo" voo.id %}">Editar</a></td>
+    <td><a href="{% url "apagar_voo" voo.id %}">Apagar</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+<a href="{% url "novo_voo" %}">Cadastrar novo</a>
+
+
+{% endblock %}
