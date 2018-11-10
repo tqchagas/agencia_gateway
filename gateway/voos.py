@@ -38,8 +38,8 @@ def buscar_voo(codigo=None):
     raise Exception('erro ao buscar voo')
 
 
-def salvar_voo(codigo, conteudo):
-    url = '{}/voos/{}/'.format(base_url, codigo)
+def salvar_voo(conteudo):
+    url = '{}/voos/'.format(base_url)
     response = requests.post(url, json=conteudo)
     if response.status_code == 201:
         return response.json()
